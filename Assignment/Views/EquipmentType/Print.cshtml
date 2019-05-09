@@ -1,0 +1,38 @@
+﻿@model IEnumerable<DAL.EquipmentTypes>
+
+@{
+    ViewBag.Title = "Print Invoice";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Print</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EquipmentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EquipmentTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RentalDays)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EquipmentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EquipmentTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RentalDays)
+        </td>
+    </tr>
+}
+
+</table>

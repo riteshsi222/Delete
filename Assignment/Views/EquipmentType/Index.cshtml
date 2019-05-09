@@ -1,0 +1,50 @@
+﻿@model IEnumerable<DAL.EquipmentTypes>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EquipmentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EquipmentTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RentalDays)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EquipmentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EquipmentTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RentalDays)
+        </td>
+        <td>
+            @Html.ActionLink("Add to Cart", "AddToCart", new { id = item.EquipmentId })
+        </td>
+    </tr>
+}
+
+    <tr>
+        <td colspan="4">
+            @Html.ActionLink("PrintInvoice", "PrintInvoice")
+        </td>
+    </tr>
+
+</table>
